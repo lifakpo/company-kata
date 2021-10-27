@@ -17,7 +17,7 @@
           <td>{{ company["Number of Employees"] }}</td>
           <td>{{ company["Revenues ($millions)"] | currency:'USD':'symbol':'1.2-2' }}</td>
           <td>
-            <button (click)="deleteRow(company)">Delete</button>
+            <button class="btn btn-danger" (click)="deleteRow(company)">Delete</button>
           </td>
         </tr>
         </tbody>
