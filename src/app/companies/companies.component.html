@@ -1,0 +1,45 @@
+<div class="container">
+  <input type="file" class="form-control-file" accept=".xlsx, .xls, .csv" (change)="onFileChange($event)"/>
+  <br>
+  <div *ngIf="data">
+    <div class='table-responsive'>
+      <table class='table'>
+        <thead>
+        <tr>
+          <th>Company Name</th>
+          <th>Number of Employees</th>
+          <th>Revenues ($millions)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let company of data">
+          <td>{{ company["Company Name"] }}</td>
+          <td>{{ company["Number of Employees"] }}</td>
+          <td>{{ company["Revenues ($millions)"] | currency:'USD':'symbol':'1.2-2' }}</td>
+          <td>
+            <button (click)="deleteRow(company)">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <form class="form-inline" (ngSubmit)="onSubmit(form)" #form="ngForm">
+      <div class="form-group mb-2">
+        <label for="name" class="sr-only">Company Name</label>
+        <input type="text" class="form-control" name="Company Name" id="name" placeholder="company name"
+               [(ngModel)]='companyName'>
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="employees" class="sr-only">Number of Employees</label>
+        <input type="number" class="form-control" name="Number of Employees" id="employees"
+               placeholder="Number of Employees" [(ngModel)]='employees'>
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="revenues" class="sr-only">Revenues ($millions)</label>
+        <input type="number" class="form-control" name="Revenues ($millions)" id="revenues"
+               placeholder="Revenues ($millions)" [(ngModel)]='revenues'>
+      </div>
+      <button type="submit" class="btn btn-primary mb-2">Create company</button>
+    </form>
+  </div>
+</div>
