@@ -12,7 +12,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let company of data">
+        <tr *ngFor="let company of data | removeduplicates | orderby: 'Revenues ($millions)' : 'desc'">
           <td>{{ company["Company Name"] }}</td>
           <td>{{ company["Number of Employees"] }}</td>
           <td>{{ company["Revenues ($millions)"] | currency:'USD':'symbol':'1.2-2' }}</td>

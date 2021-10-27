@@ -5,11 +5,15 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CompaniesComponent} from './companies/companies.component';
 import {FormsModule} from "@angular/forms";
+import {OrderbyPipe} from './orderby.pipe';
+import {RemovePipe} from './remove.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CompaniesComponent
+    CompaniesComponent,
+    OrderbyPipe,
+    RemovePipe
   ],
   imports: [
     BrowserModule,

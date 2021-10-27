@@ -41,6 +41,7 @@ export class CompaniesComponent implements OnInit {
     // add only if excel was uploaded and value does not exist
     if (this.data && this.data.indexOf(form.value) == -1) {
       this.data.push(form.value);
+      console.log(form.value);
     }
   }
 }
